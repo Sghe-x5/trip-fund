@@ -1,0 +1,13 @@
+{
+  "name": "trip-fund",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check": "forge fmt --check && forge test && npm run validate-upgrade",
+    "validate-upgrade": "forge clean && forge build && openzeppelin-upgrades-core validate out/build-info --contract TripFundV1 --unsafeAllow constructor && openzeppelin-upgrades-core validate out/build-info --contract TripFundV2 --reference TripFundV1 --requireReference --unsafeAllow constructor"
+  },
+  "devDependencies": {
+    "@openzeppelin/contracts": "5.0.2",
+    "@openzeppelin/upgrades-core": "1.44.2"
+  }
+}
